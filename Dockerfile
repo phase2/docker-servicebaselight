@@ -1,13 +1,11 @@
-FROM progrium/busybox
+FROM alpine:3.2
 
-ENV CURL_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk --update add curl ca-certificates s6@testing && \
+    curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk && \
+    apk add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
+    rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
 
-RUN mkdir -p /opt/sbin && \
-    opkg-install curl bash ca-certificates && \
-    echo "--capath /etc/ssl/certs" > /root/.curlrc && \
-    curl https://godist.herokuapp.com/projects/ddollar/forego/releases/current/linux-amd64/forego -o /opt/sbin/forego && \
-    chmod a+x /opt/sbin/forego
+CMD ["/usr/bin/s6-svscan","-t0","/service"]
 
-COPY root/ /
-
-CMD ["/opt/bin/run"]
+VOLUME ["/var/log/services"]
