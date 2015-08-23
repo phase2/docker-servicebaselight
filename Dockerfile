@@ -16,3 +16,6 @@ ENTRYPOINT ["/init"]
 
 # Set up a standard volume for logs.
 VOLUME ["/var/log/services"]
+
+# Add in standard scripts.
+ADD root /
