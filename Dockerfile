@@ -6,7 +6,7 @@ RUN apk --update add bash curl ca-certificates && \
     rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
 
 # Add the s6 overlay.
-ENV S6_VERSION v1.11.0.1
+ENV S6_VERSION v1.11.0.2
 RUN curl -L "https://github.com/just-containers/s6-overlay/releases/download/$S6_VERSION/s6-overlay-amd64.tar.gz" | \
     tar xzvf - -C /
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS 1
