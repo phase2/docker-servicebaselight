@@ -1,4 +1,4 @@
-# Outrigger Service Base
+# Outrigger Service Base (Light)
 
 > This is an Alpine-based image that has had the S6-overlay init system and confd added to it.
 
