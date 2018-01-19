@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.7
 
 RUN apk --update add bash curl ca-certificates && \
     curl -Ls https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub > /etc/apk/keys/sgerrand.rsa.pub && \
