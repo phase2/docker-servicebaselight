@@ -21,17 +21,10 @@ with them, please [see the documentation](http://docs.outrigger.sh/en/latest/).
 All images derived from Service Base (Light) use the [S6 init system](https://github.com/just-containers/s6-overlay)
 for more sophisticated process management.
 
-### confd
-
-S6 is used to trigger [confd](https://github.com/kelseyhightower/confd) templating
-of environment configurations. Service Base itself does not make significant use
-of these templates, but Docker images extending from this may use it to create
-configurable configuration using environment variables.
-
 ## Security Reports
 
 Please email outrigger@phase2technology.com with security concerns.
 
 ## Maintainers
 
-[![Phase2 Logo](https://www.phase2technology.com/wp-content/uploads/2015/06/logo-retina.png)](https://www.phase2technology.com)
+[![Phase2 Logo](https://s3.amazonaws.com/phase2.public/logos/phase2-logo.png)](https://www.phase2technology.com)
